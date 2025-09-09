@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+/* Base style for mobile-first layout */
+/* Page wrapper: full width by default, flex column layout */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Outer, full-width section wrapper */
+.section-wide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Inner content container: constrained width, centered, and has padding */
+.content-container {
+    width: 100%;
+    max-width: 1200px; /* Cap content width on desktop */
+    margin: 0 auto;
+    padding: 1rem 0.75rem; /* Mobile padding */
+    box-sizing: border-box;
+    /* REMOVED: background-color: lightcoral; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Header layout: stacked on mobile, flex on tablet+ */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* Nav header: logo + hamburger */
+.nav-header {
+    display: flex; /* Display children in a row */
+    justify-content: space-between; /* Push items to opposite ends */
+    align-items: center; /* Vertically center them */
+    width: 100%; /* Take up the full width */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navigation styles */
+/* Nav container */
+.nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.75rem;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hamburger button (visible on mobile) */
+.hamburger {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Nav list: hidden by default on mobile */
+.nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 1rem 0 0;
+    margin: 0;
+}
+
+.nav-list.open {
+    display: flex;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Tablet styles (≥ 768px) */
+@media (min-width: 768px) {
+    .content-container {
+        padding: 1.5rem 1rem; /* More breathing room */
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Desktop styles (≥ 1024px) */
+@media (min-width: 1024px) {
+    .page-wrapper {
+        max-width: 1440px; /* Cap layout width */
+    }
+
+    .section-wide {
+        max-width: 1440px; /* Cap layout width */
+    }
+
+    .content-container {
+        max-width: 1200px; /* Cap content width */
+        padding: 2rem 2rem;
+    }
 }

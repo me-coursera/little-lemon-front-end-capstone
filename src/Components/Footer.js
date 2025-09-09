@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <>
+        <div className="content-container">
             <footer>
                 <img src="" alt="" />
                 <nav aria-label="Doormat Navigation">
@@ -49,7 +49,7 @@ const Footer = () => {
                     </ul>
                 </nav>
             </footer>
-        </>
+        </div>
     );
 };
 
