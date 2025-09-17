@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,26 +12,26 @@ const Nav = () => {
                     className="hamburger"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    ☰
+                    {isOpen ? "✖" : "☰"}
                 </button>
 
                 <ul className={`nav-list ${isOpen ? "open" : ""}`}>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <a href="/about">About</a>
                     </li>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <a href="/menu">Menu</a>
                     </li>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <a href="/reservations">Reservations</a>
                     </li>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <a href="/order">Order Online</a>
                     </li>
-                    <li>
+                    <li onClick={() => setIsOpen(!isOpen)}>
                         <a href="/login">Login</a>
                     </li>
                 </ul>

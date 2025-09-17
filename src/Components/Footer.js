@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className="content-container">
             <footer>
-                <img src="" alt="" />
+                {/* <img src="" alt="" /> */}
                 <nav aria-label="Doormat Navigation">
                     <h2>Doormat Navigation</h2>
                     <ul>

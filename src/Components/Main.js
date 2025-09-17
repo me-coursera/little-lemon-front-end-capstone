@@ -1,15 +1,17 @@
 import React from "react";
+import Hero from "./Hero";
 
 const Main = () => {
     return (
-        <div className="section-wide">
-            <div className="content-container">
-                <main>
-                    <h1>Main Content</h1>
-                    <p>This is your core content area.</p>
-                </main>
-            </div>
-        </div>
+        <>
+            {/* <div className="section-wide"> */}
+            {/* <div className="content-container"> */}
+            <main>
+                <Hero />
+            </main>
+            {/* </div> */}
+            {/* </div> */}
+        </>
     );
 };
 
