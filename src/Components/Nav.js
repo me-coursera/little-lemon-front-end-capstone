@@ -7,7 +7,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="nav">
+            <nav>
                 <button
                     className="hamburger"
                     onClick={() => setIsOpen(!isOpen)}
@@ -20,19 +20,19 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/about">About</a>
+                        <a href="/placeholder">About</a>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/menu">Menu</a>
+                        <a href="/placeholder">Menu</a>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/reservations">Reservations</a>
+                        <Link to="/reservations">Reservations</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/order">Order Online</a>
+                        <a href="/placeholder">Order Online</a>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/login">Login</a>
+                        <a href="/placeholder">Login</a>
                     </li>
                 </ul>
             </nav>

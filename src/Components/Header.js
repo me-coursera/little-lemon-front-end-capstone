@@ -5,7 +5,7 @@ import logo from "../images/Logo.svg";
 const Header = () => {
     return (
         <div className="content-container">
-            <header className="header">
+            <header>
                 <div className="nav-header">
                     <img src={logo} alt="logo" className="logo" />
                     <Nav />

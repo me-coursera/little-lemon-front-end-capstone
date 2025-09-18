@@ -1,5 +1,6 @@
 import React from "react";
-import Hero from "./Hero";
+import Hero from "../Components/Hero";
+import Specials from "../Components/Specials";
 
 const Main = () => {
     return (
@@ -8,6 +9,7 @@ const Main = () => {
             {/* <div className="content-container"> */}
             <main>
                 <Hero />
+                <Specials />
             </main>
             {/* </div> */}
             {/* </div> */}
