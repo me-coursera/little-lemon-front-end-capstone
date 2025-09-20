@@ -20,19 +20,19 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/placeholder">About</a>
+                        <Link to="/placeholder">About</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/placeholder">Menu</a>
+                        <Link to="/placeholder">Menu</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
                         <Link to="/reservations">Reservations</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/placeholder">Order Online</a>
+                        <Link to="/placeholder">Order Online</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <a href="/placeholder">Login</a>
+                        <Link to="/placeholder">Login</Link>
                     </li>
                 </ul>
             </nav>
