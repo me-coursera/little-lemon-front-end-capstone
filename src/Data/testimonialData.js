@@ -10,7 +10,7 @@ const testimonials = [
         name: "Esme",
         starRating: 4,
         testimonial:
-            "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style fota cheese, garnished with crunchy garlic and rosemary croutons.",
+            "The family and I totally loved the atmosphere, food and pleasant waiter. Adrian himself even came to check in on us!",
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const testimonials = [
         name: "George",
         starRating: 5,
         testimonial:
-            "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+            "My Bruschetta was the best I had in a long time! So glad I found this gem of a restaurant. I'm definitely coming back for more.",
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const testimonials = [
         name: "Luis",
         starRating: 4,
         testimonial:
-            "A luscious blend of tangy lemon cream and airy whipped topping layered over golden shortbread—bright, refreshing, and irresistibly smooth.",
+            "Bringing my client here was one of the best decisions of the day! Great food and a lovely atmosphere. My client even invited ME back here next week!",
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ const testimonials = [
         name: "Maria",
         starRating: 5,
         testimonial:
-            "A luscious blend of tangy lemon cream and airy whipped topping layered over golden shortbread—bright, refreshing, and irresistibly smooth.",
+            "My company took me here for a retirement lunch. Lovely find and I will definitely be bringing my family along next time. The food was absolutely out of this world!",
     },
 ];
 

@@ -1,55 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaYoutube, FaLinkedin } from "react-icons/fa";
+import logo_mono from "../images/Logo_Mono.png";
 
 const Footer = () => {
     return (
-        <div className="content-container">
-            <footer>
-                {/* <img src="" alt="" /> */}
-                <nav aria-label="Doormat Navigation">
-                    <h2>Doormat Navigation</h2>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/placeholder">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/placeholder">Menu</Link>
-                        </li>
-                        <li>
-                            <Link to="/reservations">Reservations</Link>
-                        </li>
-                        <li>
-                            <Link to="/placeholder">Order Online</Link>
-                        </li>
-                        <li>
-                            <Link to="/placeholder">Login</Link>
-                        </li>
-                    </ul>
-                </nav>
-                <nav aria-label="Contact">
-                    <h2>Contact</h2>
-                    <ul>
-                        <li>Address</li>
-                        <li>Phone Number</li>
-                        <li>
-                            <a href="mailto:someone@example.com">Email</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav aria-label="Social Media Links">
-                    <h2>Social Media Links</h2>
-                    <ul>
-                        <li>Address</li>
-                        <li>Phone Number</li>
-                        <li>
-                            <a href="mailto:someone@example.com">Email</a>
-                        </li>
-                    </ul>
-                </nav>
-            </footer>
+        <div className="section-wide">
+            <div className="content-container">
+                <footer>
+                    <img
+                        src={logo_mono}
+                        alt="logo-mono"
+                        className="logo_mono"
+                    />
+                    <nav aria-label="Doormat Navigation">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/placeholder">About</Link>
+                            </li>
+                            <li>
+                                <Link to="/placeholder">Menu</Link>
+                            </li>
+                            <li>
+                                <Link to="/reservations">Reservations</Link>
+                            </li>
+                            <li>
+                                <Link to="/placeholder">Order Online</Link>
+                            </li>
+                            <li>
+                                <Link to="/placeholder">Login</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Contact">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>1 Food Ave, Chicago, IL</li>
+                            <li>+1 (012) 555-1234</li>
+                            <li>
+                                <a href="mailto:someone@example.com">
+                                    someone@example.com
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Social Media Links">
+                        <h3>Social Media</h3>
+                        <div className="socials">
+                            <FaFacebook size={18} />
+                            <FaTwitter size={18} />
+                            <FaYoutube size={18} />
+                            <FaLinkedin size={18} />
+                        </div>
+                    </nav>
+                </footer>
+            </div>
         </div>
     );
 };

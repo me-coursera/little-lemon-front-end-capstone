@@ -12,6 +12,7 @@ const Main = () => {
                 <Hero />
                 <Specials />
                 <Testimonials />
+                Story goes here
             </main>
             {/* </div> */}
             {/* </div> */}
