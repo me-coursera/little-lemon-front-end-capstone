@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../Components/Hero";
 import Specials from "../Components/Specials";
 import Testimonials from "../Components/Testimonials";
+import Story from "../Components/Story";
 
 const Main = () => {
     return (
@@ -12,7 +13,7 @@ const Main = () => {
                 <Hero />
                 <Specials />
                 <Testimonials />
-                Story goes here
+                <Story />
             </main>
             {/* </div> */}
             {/* </div> */}
