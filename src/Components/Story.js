@@ -11,7 +11,7 @@ const Story = () => {
                     <h1>Little Lemon</h1>
                     <h2 className="location">Chicago</h2>
                     <p>
-                        The Little Lemon Restaurant is one of Chicago’s
+                        The Little Lemon Restaurant is one of Chicago's
                         best-kept secrets, nestled in a charming corner of the
                         city near bustling malls, thriving businesses, and
                         vibrant schools. Founded by Mario and Adrian, whose

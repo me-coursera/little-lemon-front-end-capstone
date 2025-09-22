@@ -485,6 +485,78 @@ h2 .location {
 }
 
 /*-------------
+* Reservations
+-------------*/
+.reservation-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 5px;
+    background-color: #fff;
+}
+
+#reservations {
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.reservation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 2rem 0;
+    /* background-color: #ee9972; */
+}
+
+#reservations h2 {
+    color: #000;
+    text-transform: uppercase;
+    font-family: "Karla", sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+#reservations h3 {
+    color: #000;
+    font-family: "Markazi Text", serif;
+    /* font-weight: 800; */
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+.reservation-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1.5rem;
+    text-align: left;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    /* background-color: #f4ce14; */
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    gap: 1.5rem;
+    /* text-align: left; */
+    /* font-size: 1.125rem; */
+    margin-bottom: 2rem;
+    width: 100%;
+    background-color: #edefee;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+/*-------------
 * Footer
 -------------*/
 footer {
@@ -595,6 +667,22 @@ footer a:hover,
     .story-images {
         margin-top: 3.7rem;
         margin-bottom: 2rem;
+    }
+
+    #reservations {
+        flex-direction: row;
+    }
+
+    .reservation-container {
+        flex-direction: row;
+    }
+
+    .reservation-info {
+        width: 50%;
+    }
+
+    .reservation-form {
+        width: 50%;
     }
 }
 
