@@ -1,4 +1,5 @@
 import React from "react";
+import BookingForm from "../Components/BookingForm";
 
 const Reservations = () => {
     return (
@@ -20,6 +21,7 @@ const Reservations = () => {
                             </div>
                             <div className="reservation-form">
                                 <h3>Reserve a Table</h3>
+                                <BookingForm />
                             </div>
                         </div>
                     </section>
