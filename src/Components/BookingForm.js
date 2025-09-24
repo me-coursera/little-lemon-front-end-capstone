@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
 
-const BookingForm = () => {
-    const [availableTimes, setAvailableTimes] = useState([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]);
-
+const BookingForm = ({ availableTimes = [], dispatch }) => {
     const { isLoading, response, submit } = useSubmit();
     const { onOpen } = useAlertContext();
 
@@ -58,13 +49,18 @@ const BookingForm = () => {
     return (
         <section>
             <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-                {/* <h1>Contact me</h1> */}
-                <form onSubmit={formik.handleSubmit}>
+                <form
+                    onSubmit={formik.handleSubmit}
+                    aria-label="Table booking form"
+                >
+                    <h3>Reserve a Table</h3>
                     <div style={{ marginBottom: "1rem" }}>
                         <label htmlFor="firstName">Name</label>
                         <input
                             id="firstName"
                             type="text"
+                            aria-label="Your full name"
+                            aria-required="true"
                             {...formik.getFieldProps("firstName")}
                             style={{
                                 display: "block",
@@ -85,6 +81,8 @@ const BookingForm = () => {
                         <input
                             id="email"
                             type="email"
+                            aria-label="Your email address"
+                            aria-required="true"
                             {...formik.getFieldProps("email")}
                             style={{
                                 display: "block",
@@ -104,7 +102,16 @@ const BookingForm = () => {
                         <input
                             id="date"
                             type="date"
+                            aria-label="Select reservation date"
+                            aria-required="true"
                             {...formik.getFieldProps("date")}
+                            onChange={(e) => {
+                                formik.handleChange(e);
+                                dispatch({
+                                    type: "update",
+                                    date: e.target.value,
+                                });
+                            }}
                             style={{
                                 display: "block",
                                 width: "100%",
@@ -122,6 +129,8 @@ const BookingForm = () => {
                         <label htmlFor="time">Choose time</label>
                         <select
                             id="time"
+                            aria-label="Select reservation time"
+                            aria-required="true"
                             {...formik.getFieldProps("time")}
                             style={{
                                 display: "block",
@@ -148,6 +157,8 @@ const BookingForm = () => {
                         <input
                             id="guests"
                             type="number"
+                            aria-label="Number of guests"
+                            aria-required="true"
                             placeholder="1"
                             min="1"
                             max="10"
@@ -169,6 +180,8 @@ const BookingForm = () => {
                         <label htmlFor="occasion">Occasion</label>
                         <select
                             id="occasion"
+                            aria-label="Select occasion type"
+                            aria-required="true"
                             {...formik.getFieldProps("occasion")}
                             style={{
                                 display: "block",
@@ -193,6 +206,7 @@ const BookingForm = () => {
                         type="submit"
                         disabled={isLoading}
                         className="btn"
+                        aria-label="Submit reservation"
                         // style={{
                         //     backgroundColor: "purple",
                         //     color: "white",
