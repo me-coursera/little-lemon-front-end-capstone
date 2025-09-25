@@ -1,10 +1,14 @@
+// import { submitAPI } from "../api.js";
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm = ({ availableTimes = [], dispatch }) => {
+const BookingForm = ({ availableTimes = [], dispatch, submitForm }) => {
+    const navigate = useNavigate();
+
     const { isLoading, response, submit } = useSubmit();
     const { onOpen } = useAlertContext();
 
@@ -17,8 +21,38 @@ const BookingForm = ({ availableTimes = [], dispatch }) => {
             guests: "1",
             occasion: "",
         },
+        // onSubmit: async (values) => {
+        //     // await submit("", values);
+        //     // const success = submitAPI(values);
+
+        //     // if (success) {
+        //     //     onOpen("success", "Reservation submitted successfully!");
+        //     //     formik.resetForm();
+        //     // } else {
+        //     //     onOpen("error", "Submission failed. Please try again.");
+        //     // }
+        //     submitForm(values);
+        //     formik.resetForm();
+        // },
         onSubmit: async (values) => {
-            await submit("", values);
+            // 1) load any existing bookings (or start empty)
+            const stored =
+                localStorage.getItem("little-lemon-bookings") || "[]";
+            const bookings = JSON.parse(stored);
+
+            // 2) append the new reservation
+            bookings.push(values);
+
+            // 3) write it back
+            localStorage.setItem(
+                "little-lemon-bookings",
+                JSON.stringify(bookings)
+            );
+
+            // 4) your original submit logic
+            submitForm(values);
+            dispatch({ type: "update", date: values.date });
+            formik.resetForm();
         },
         validationSchema: Yup.object({
             firstName: Yup.string().required("Name is required"),
@@ -124,6 +158,13 @@ const BookingForm = ({ availableTimes = [], dispatch }) => {
                             </div>
                         )}
                     </div>
+
+                    {availableTimes.length === 0 && formik.values.date && (
+                        <div style={{ color: "red", marginBottom: "1rem" }}>
+                            Sorry, fully booked for this date. Please select a
+                            different day.
+                        </div>
+                    )}
 
                     <div style={{ marginBottom: "1rem" }}>
                         <label htmlFor="time">Choose time</label>

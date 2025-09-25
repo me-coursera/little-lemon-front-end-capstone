@@ -1,24 +1,157 @@
+import { fetchAPI } from "../api.js";
 import React, { useReducer } from "react";
 import BookingForm from "../Components/BookingForm";
 
 // Initial time slots (can be static for now)
-const initializeTimes = () => [
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-];
+// const initializeTimes = () => [
+//     "17:00",
+//     "18:00",
+//     "19:00",
+//     "20:00",
+//     "21:00",
+//     "22:00",
+// ];
+// const initializeTimes = (fetchFn = fetchAPI) => {
+//     const today = new Date();
+//     // return fetchAPI(today);
 
-// Reducer to update times based on selected date
-const updateTimes = (state, action) => {
-    // const selectedDate = action.date;
-    // For now, return same times regardless of date
-    return initializeTimes();
+//     // const allTimes = fetchAPI(today);
+
+//     // const stored = localStorage.getItem("little-lemon-bookings");
+//     // const bookings = stored ? JSON.parse(stored) : [];
+
+//     // const todayStr = today.toISOString().split("T")[0];
+
+//     // const bookedTimes = bookings
+//     //     .filter((b) => b.date === todayStr)
+//     //     .map((b) => b.time);
+
+//     // return allTimes.filter((time) => !bookedTimes.includes(time));
+//     const allTimes = fetchFn(today) || [];
+
+//     const stored = localStorage.getItem("little-lemon-bookings");
+//     let bookings = [];
+
+//     try {
+//         const parsed = JSON.parse(stored);
+//         if (Array.isArray(parsed)) {
+//             bookings = parsed;
+//         } else {
+//             bookings = [];
+//         }
+//     } catch {
+//         bookings = [];
+//     }
+
+//     const todayStr = today.toISOString().split("T")[0];
+//     const bookedTimes = bookings
+//         .filter((b) => b.date === todayStr)
+//         .map((b) => b.time);
+
+//     return allTimes.filter((time) => !bookedTimes.includes(time));
+
+//     // return typeof window.fetchAPI === "function" ? window.fetchAPI(today) : [];
+// };
+const initializeTimes = (...args) => {
+    const fetchFn = typeof args[0] === "function" ? args[0] : fetchAPI;
+
+    const today = new Date();
+    const allTimes = fetchFn(today) || [];
+
+    const stored = localStorage.getItem("little-lemon-bookings");
+    let bookings = [];
+
+    try {
+        const parsed = JSON.parse(stored);
+        bookings = Array.isArray(parsed) ? parsed : [];
+    } catch {
+        bookings = [];
+    }
+
+    const todayStr = today.toISOString().split("T")[0];
+    const bookedTimes = bookings
+        .filter((b) => b.date === todayStr)
+        .map((b) => b.time);
+
+    return allTimes.filter((time) => !bookedTimes.includes(time));
 };
 
-const Reservations = () => {
+// Reducer to update times based on selected date
+// const updateTimes = (state, action) => {
+//     // const selectedDate = action.date;
+//     // For now, return same times regardless of date
+//     return initializeTimes();
+// };
+// const updateTimes = (state, action, fetchFn = fetchAPI) => {
+//     const selectedDate = new Date(action.date);
+//     // return fetchAPI(selectedDate);
+
+//     // const allTimes = fetchAPI(selectedDate);
+
+//     // const stored = localStorage.getItem("little-lemon-bookings");
+//     // const bookings = stored ? JSON.parse(stored) : [];
+
+//     // const selectedDateStr = selectedDate.toISOString().split("T")[0]; // "2025-09-26"
+
+//     // const bookedTimes = bookings
+//     //     .filter((b) => b.date === selectedDateStr)
+//     //     .map((b) => b.time);
+
+//     // return allTimes.filter((time) => !bookedTimes.includes(time));
+//     const allTimes = fetchFn(selectedDate) || [];
+
+//     const stored = localStorage.getItem("little-lemon-bookings");
+//     let bookings = [];
+
+//     try {
+//         const parsed = JSON.parse(stored);
+//         if (Array.isArray(parsed)) {
+//             bookings = parsed;
+//         } else {
+//             bookings = [];
+//         }
+//     } catch {
+//         bookings = [];
+//     }
+
+//     const selectedDateStr = selectedDate.toISOString().split("T")[0];
+//     const bookedTimes = bookings
+//         .filter((b) => b.date === selectedDateStr)
+//         .map((b) => b.time);
+
+//     return allTimes.filter((time) => !bookedTimes.includes(time));
+
+//     // return typeof window.fetchAPI === "function"
+//     //     ? window.fetchAPI(selectedDate)
+//     //     : [];
+// };
+
+const updateTimes = (state, action, maybeFetchFn) => {
+    const fetchFn =
+        typeof maybeFetchFn === "function" ? maybeFetchFn : fetchAPI;
+
+    const selectedDate = new Date(action.date);
+    const allTimes = fetchFn(selectedDate) || [];
+
+    const stored = localStorage.getItem("little-lemon-bookings");
+    let bookings = [];
+
+    try {
+        const parsed = JSON.parse(stored);
+        bookings = Array.isArray(parsed) ? parsed : [];
+    } catch {
+        bookings = [];
+    }
+
+    const selectedDateStr = selectedDate.toISOString().split("T")[0];
+    const bookedTimes = bookings
+        .filter((b) => b.date === selectedDateStr)
+        .map((b) => b.time);
+
+    return allTimes.filter((time) => !bookedTimes.includes(time));
+};
+
+const Reservations = ({ submitForm }) => {
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
         [],
@@ -56,6 +189,7 @@ const Reservations = () => {
                                 <BookingForm
                                     availableTimes={availableTimes}
                                     dispatch={dispatch}
+                                    submitForm={submitForm}
                                 />
                             </div>
                         </div>
