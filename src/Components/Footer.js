@@ -8,18 +8,26 @@ const Footer = () => {
         <div className="section-wide">
             <div className="content-container">
                 <footer>
-                    <div className="nav-footer">
+                    <div
+                        className="nav-footer"
+                        aria-label="Footer with Navigation"
+                    >
                         <img
                             src={logo_mono}
                             alt="logo-mono"
                             className="logo_mono"
                         />
                         <div className="links">
-                            <nav aria-label="Doormat Navigation">
+                            <nav aria-label="Doormat Navigation or Sitemap">
                                 <h3>Navigation</h3>
                                 <ul>
                                     <li>
-                                        <Link to="/">Home</Link>
+                                        <Link
+                                            to="/"
+                                            aria-label="Navigate to Home Page"
+                                        >
+                                            Home
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="/placeholder">About</Link>
@@ -28,7 +36,10 @@ const Footer = () => {
                                         <Link to="/placeholder">Menu</Link>
                                     </li>
                                     <li>
-                                        <Link to="/reservations">
+                                        <Link
+                                            to="/reservations"
+                                            aria-label="Reserve a table (opens reservation form)"
+                                        >
                                             Reservations
                                         </Link>
                                     </li>

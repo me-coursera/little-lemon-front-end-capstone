@@ -59,7 +59,6 @@ const ConfirmedBooking = () => {
                 style={{
                     marginTop: "1rem",
                     marginBottom: "2rem",
-                    // padding: "0.75rem 1.5rem",
                 }}
             >
                 Continue

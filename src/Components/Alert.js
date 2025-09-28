@@ -1,9 +1,6 @@
 import React, { useRef } from "react";
 import { useAlertContext } from "../context/alertContext";
 
-/**
- * This is a global component that uses context to display a global alert message.
- */
 function Alert() {
     const { isOpen, type, message, onClose } = useAlertContext();
     const cancelRef = useRef();

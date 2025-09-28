@@ -544,6 +544,10 @@ h2 .location {
     /* background-color: #f4ce14; */
 }
 
+.reservation-info > img {
+    display: none;
+}
+
 .reservation-form {
     display: flex;
     flex-direction: column;
@@ -691,6 +695,14 @@ footer a:hover,
 
     .reservation-info {
         width: 50%;
+    }
+
+    .reservation-info > img {
+        display: block;
+        width: 96%;
+        height: auto;
+        margin: 1rem 0;
+        border-radius: 1rem;
     }
 
     .reservation-form {

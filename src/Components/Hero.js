@@ -1,12 +1,12 @@
 import React from "react";
-import heroImg from "../images/restauranfood.jpg";
+import heroImg from "../images/restaurantfood.jpg";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
         <>
             {/* <div className="section-wide"> */}
-            <section id="hero">
+            <section id="hero" aria-label="Hero section with description">
                 <div className="container">
                     <div className="information">
                         <h1>Little Lemon</h1>
@@ -16,7 +16,11 @@ const Hero = () => {
                             focused on traditional recipes served with a modern
                             twist.
                         </p>
-                        <Link className="btn" to="/reservations">
+                        <Link
+                            className="btn"
+                            to="/reservations"
+                            aria-label="Reserve a table (opens reservation form)"
+                        >
                             Reserve a table
                         </Link>
                     </div>

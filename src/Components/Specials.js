@@ -7,14 +7,14 @@ const Specials = () => {
     return (
         <section id="specials">
             <div className="content-container">
-                <div className="specials-header">
+                <div className="specials-header" aria-label="Specials Heading">
                     <h2>Specials</h2>
                     <Link className="btn" to="/placeholder">
                         Online Menu
                     </Link>
                 </div>
 
-                <div className="specials">
+                <div className="specials" aria-label="List of Specials">
                     {specialsData.map((specials) => (
                         <SpecialsCard
                             key={specials.id}

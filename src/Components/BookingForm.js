@@ -21,35 +21,18 @@ const BookingForm = ({ availableTimes = [], dispatch, submitForm }) => {
             guests: "1",
             occasion: "",
         },
-        // onSubmit: async (values) => {
-        //     // await submit("", values);
-        //     // const success = submitAPI(values);
-
-        //     // if (success) {
-        //     //     onOpen("success", "Reservation submitted successfully!");
-        //     //     formik.resetForm();
-        //     // } else {
-        //     //     onOpen("error", "Submission failed. Please try again.");
-        //     // }
-        //     submitForm(values);
-        //     formik.resetForm();
-        // },
         onSubmit: async (values) => {
-            // 1) load any existing bookings (or start empty)
             const stored =
                 localStorage.getItem("little-lemon-bookings") || "[]";
             const bookings = JSON.parse(stored);
 
-            // 2) append the new reservation
             bookings.push(values);
 
-            // 3) write it back
             localStorage.setItem(
                 "little-lemon-bookings",
                 JSON.stringify(bookings)
             );
 
-            // 4) your original submit logic
             submitForm(values);
             dispatch({ type: "update", date: values.date });
             formik.resetForm();
@@ -248,14 +231,6 @@ const BookingForm = ({ availableTimes = [], dispatch, submitForm }) => {
                         disabled={isLoading}
                         className="btn"
                         aria-label="Submit reservation"
-                        // style={{
-                        //     backgroundColor: "purple",
-                        //     color: "white",
-                        //     padding: "0.75rem 1.5rem",
-                        //     border: "none",
-                        //     width: "100%",
-                        //     cursor: "pointer",
-                        // }}
                     >
                         {isLoading ? "Submitting..." : "Submit"}
                     </button>

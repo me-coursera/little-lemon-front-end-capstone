@@ -9,7 +9,10 @@ const Testimonials = () => {
                 <section id="testimonials">
                     <h2>Testimonials</h2>
 
-                    <div className="testimonials">
+                    <div
+                        className="testimonials"
+                        aria-label="Testimonials from satisfied Customers"
+                    >
                         {testimonialData.map((testimonials) => (
                             <TestimonialCard
                                 key={testimonials.id}

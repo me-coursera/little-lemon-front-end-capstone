@@ -19,7 +19,7 @@ function App() {
         const success = submitAPI(formData);
         if (success) {
             // alert("Reservation submitted successfully!");
-            addBooking(formData); // ✅ Save to local storage
+            addBooking(formData);
             navigate("/confirmed");
         } else {
             alert("Submission failed. Please try again.");
@@ -30,7 +30,7 @@ function App() {
         <>
             <AlertProvider>
                 {/* <div className="page-wrapper"> */}
-                <div className="sticky">
+                <div className="sticky" aria-label="Sticky Header">
                     <Header />
                 </div>
                 <Routes>

@@ -1,57 +1,8 @@
 import { fetchAPI } from "../api.js";
 import React, { useReducer } from "react";
 import BookingForm from "../Components/BookingForm";
+import restaurantImg from "../images/restaurant.jpg";
 
-// Initial time slots (can be static for now)
-// const initializeTimes = () => [
-//     "17:00",
-//     "18:00",
-//     "19:00",
-//     "20:00",
-//     "21:00",
-//     "22:00",
-// ];
-// const initializeTimes = (fetchFn = fetchAPI) => {
-//     const today = new Date();
-//     // return fetchAPI(today);
-
-//     // const allTimes = fetchAPI(today);
-
-//     // const stored = localStorage.getItem("little-lemon-bookings");
-//     // const bookings = stored ? JSON.parse(stored) : [];
-
-//     // const todayStr = today.toISOString().split("T")[0];
-
-//     // const bookedTimes = bookings
-//     //     .filter((b) => b.date === todayStr)
-//     //     .map((b) => b.time);
-
-//     // return allTimes.filter((time) => !bookedTimes.includes(time));
-//     const allTimes = fetchFn(today) || [];
-
-//     const stored = localStorage.getItem("little-lemon-bookings");
-//     let bookings = [];
-
-//     try {
-//         const parsed = JSON.parse(stored);
-//         if (Array.isArray(parsed)) {
-//             bookings = parsed;
-//         } else {
-//             bookings = [];
-//         }
-//     } catch {
-//         bookings = [];
-//     }
-
-//     const todayStr = today.toISOString().split("T")[0];
-//     const bookedTimes = bookings
-//         .filter((b) => b.date === todayStr)
-//         .map((b) => b.time);
-
-//     return allTimes.filter((time) => !bookedTimes.includes(time));
-
-//     // return typeof window.fetchAPI === "function" ? window.fetchAPI(today) : [];
-// };
 const initializeTimes = (...args) => {
     const fetchFn = typeof args[0] === "function" ? args[0] : fetchAPI;
 
@@ -75,56 +26,6 @@ const initializeTimes = (...args) => {
 
     return allTimes.filter((time) => !bookedTimes.includes(time));
 };
-
-// Reducer to update times based on selected date
-// const updateTimes = (state, action) => {
-//     // const selectedDate = action.date;
-//     // For now, return same times regardless of date
-//     return initializeTimes();
-// };
-// const updateTimes = (state, action, fetchFn = fetchAPI) => {
-//     const selectedDate = new Date(action.date);
-//     // return fetchAPI(selectedDate);
-
-//     // const allTimes = fetchAPI(selectedDate);
-
-//     // const stored = localStorage.getItem("little-lemon-bookings");
-//     // const bookings = stored ? JSON.parse(stored) : [];
-
-//     // const selectedDateStr = selectedDate.toISOString().split("T")[0]; // "2025-09-26"
-
-//     // const bookedTimes = bookings
-//     //     .filter((b) => b.date === selectedDateStr)
-//     //     .map((b) => b.time);
-
-//     // return allTimes.filter((time) => !bookedTimes.includes(time));
-//     const allTimes = fetchFn(selectedDate) || [];
-
-//     const stored = localStorage.getItem("little-lemon-bookings");
-//     let bookings = [];
-
-//     try {
-//         const parsed = JSON.parse(stored);
-//         if (Array.isArray(parsed)) {
-//             bookings = parsed;
-//         } else {
-//             bookings = [];
-//         }
-//     } catch {
-//         bookings = [];
-//     }
-
-//     const selectedDateStr = selectedDate.toISOString().split("T")[0];
-//     const bookedTimes = bookings
-//         .filter((b) => b.date === selectedDateStr)
-//         .map((b) => b.time);
-
-//     return allTimes.filter((time) => !bookedTimes.includes(time));
-
-//     // return typeof window.fetchAPI === "function"
-//     //     ? window.fetchAPI(selectedDate)
-//     //     : [];
-// };
 
 const updateTimes = (state, action, maybeFetchFn) => {
     const fetchFn =
@@ -180,6 +81,7 @@ const Reservations = ({ submitForm }) => {
                                     come enjoy an exclusive meal, masterfully
                                     prepared, specially for you.
                                 </p>
+                                <img src={restaurantImg} alt="Restaurant" />
                             </div>
                             <div
                                 className="reservation-form"

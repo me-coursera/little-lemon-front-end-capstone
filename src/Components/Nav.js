@@ -17,7 +17,9 @@ const Nav = () => {
 
                 <ul className={`nav-list ${isOpen ? "open" : ""}`}>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <Link to="/">Home</Link>
+                        <Link to="/" aria-label="Go to Home page">
+                            Home
+                        </Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
                         <Link to="/placeholder">About</Link>
@@ -26,7 +28,12 @@ const Nav = () => {
                         <Link to="/placeholder">Menu</Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
-                        <Link to="/reservations">Reservations</Link>
+                        <Link
+                            to="/reservations"
+                            aria-label="Reserve a table (opens reservation form)"
+                        >
+                            Reservations
+                        </Link>
                     </li>
                     <li onClick={() => setIsOpen(!isOpen)}>
                         <Link to="/placeholder">Order Online</Link>
