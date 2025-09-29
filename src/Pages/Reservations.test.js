@@ -1,5 +1,3 @@
-// src/Pages/Reservations.test.js
-
 describe("initializeTimes and updateTimes", () => {
     let initializeTimes, updateTimes;
 

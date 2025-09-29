@@ -511,7 +511,6 @@ h2 .location {
     gap: 20px;
     justify-content: space-between;
     margin: 2rem 0;
-    /* background-color: #ee9972; */
 }
 
 #reservations h2 {
@@ -526,7 +525,6 @@ h2 .location {
 #reservations h3 {
     color: #000;
     font-family: "Markazi Text", serif;
-    /* font-weight: 800; */
     line-height: 1;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -541,7 +539,6 @@ h2 .location {
     font-size: 1.125rem;
     margin-bottom: 2rem;
     width: 100%;
-    /* background-color: #f4ce14; */
 }
 
 .reservation-info > img {
@@ -551,10 +548,7 @@ h2 .location {
 .reservation-form {
     display: flex;
     flex-direction: column;
-    /* justify-content: start; */
     gap: 1.5rem;
-    /* text-align: left; */
-    /* font-size: 1.125rem; */
     margin-bottom: 2rem;
     width: 100%;
     background-color: #edefee;
@@ -646,13 +640,13 @@ footer a:hover,
 /* Tablet styles (≥ 768px) */
 @media (min-width: 768px) {
     .content-container {
-        padding: 1rem 1rem;
+        padding: 1rem 1.25rem;
     }
 
     #hero .container {
         flex-direction: row;
         gap: 4rem;
-        padding: 2rem 1rem 3rem 1rem;
+        padding: 2rem 1.25rem 3rem 1.25rem;
     }
 
     .specials > * {
@@ -677,7 +671,6 @@ footer a:hover,
     .story-text,
     .story-images {
         flex: 1 1 45%;
-        /* max-width: 48%; */
     }
 
     .story-images {
@@ -716,13 +709,9 @@ footer a:hover,
         max-width: 1440px;
     }
 
-    /* .section-wide {
-        max-width: 1440px;
-    } */
-
     .content-container {
         max-width: 1100px;
-        padding: 1rem 2rem;
+        padding: 1rem 3rem;
     }
 
     header {
@@ -756,7 +745,7 @@ footer a:hover,
     }
 
     #hero .container {
-        padding: 2rem 2rem 3rem 2rem;
+        padding: 2rem 3rem 3rem 3rem;
     }
 
     .specials > * {
